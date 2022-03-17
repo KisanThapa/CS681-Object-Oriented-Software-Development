@@ -4,6 +4,9 @@
 # Log file
 *.log
 
+# ignore vscode settings
+.vscode/
+
 # BlueJ files
 *.ctxt
 
