@@ -5,7 +5,18 @@
 *.log
 
 # ignore vscode settings
-.vscode/
+*.vscode/
+
+# ignore Intellij IDEA Files
+*.idea/
+*out/
+*.DS_Store
+
+# ignore bin folder
+*bin/
+
+# ignore lib folder
+*lib/
 
 # BlueJ files
 *.ctxt
