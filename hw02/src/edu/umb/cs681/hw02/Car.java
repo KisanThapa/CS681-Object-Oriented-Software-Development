@@ -1,3 +1,5 @@
+package edu.umb.cs681.hw02;
+
 import java.util.ArrayList;
 
 public class Car {
@@ -5,11 +7,11 @@ public class Car {
     private String make;
     private int mileage;
     private int year;
-    private float price;
+    private int price;
     private ArrayList<Car> cars;
     private int dominationCount = 0;
 
-    public Car(String model, String make, int mileage, int year, float price) {
+    public Car(String model, String make, int mileage, int year, int price) {
         this.model = model;
         this.make = make;
         this.mileage = mileage;
@@ -33,7 +35,7 @@ public class Car {
         return year;
     }
 
-    public float getPrice() {
+    public int getPrice() {
         return price;
     }
 
