@@ -4,6 +4,9 @@
 # Log file
 *.log
 
+# iml files
+*.iml
+
 # ignore vscode settings
 *.vscode/
 
