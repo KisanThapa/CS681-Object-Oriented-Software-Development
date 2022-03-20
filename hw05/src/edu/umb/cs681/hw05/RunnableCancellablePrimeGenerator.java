@@ -10,20 +10,6 @@ public class RunnableCancellablePrimeGenerator extends RunnablePrimeGenerator {
         super(from, to);
     }
 
-    public static void main(String[] args) {
-        RunnableCancellablePrimeGenerator gen = new RunnableCancellablePrimeGenerator(1, 100);
-        Thread thread = new Thread(gen);
-        thread.start();
-        gen.setDone();
-        try {
-            thread.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        gen.getPrimes().forEach((Long prime) -> System.out.print(prime + ", "));
-        System.out.println("\n" + gen.getPrimes().size() + " prime numbers are found.");
-    }
-
     public void setDone() {
         lock.lock();
         try {
@@ -49,5 +35,19 @@ public class RunnableCancellablePrimeGenerator extends RunnablePrimeGenerator {
                 lock.unlock();
             }
         }
+    }
+
+    public static void main(String[] args) {
+        RunnableCancellablePrimeGenerator gen = new RunnableCancellablePrimeGenerator(1, 100);
+        Thread thread = new Thread(gen);
+        thread.start();
+        gen.setDone();
+        try {
+            thread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        gen.getPrimes().forEach((Long prime) -> System.out.print(prime + ", "));
+        System.out.println("\n" + gen.getPrimes().size() + " prime numbers are found.");
     }
 }
