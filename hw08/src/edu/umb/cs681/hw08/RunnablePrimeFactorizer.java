@@ -40,8 +40,10 @@ public class RunnablePrimeFactorizer extends PrimeFactorizer implements Runnable
                 factors.add(divisor);
                 dividend /= divisor;
             } else {
-                if (divisor == 2) divisor++;
-                else divisor += 2;
+                if (divisor == 2)
+                    divisor++;
+                else
+                    divisor += 2;
             }
         }
     }
@@ -54,8 +56,8 @@ public class RunnablePrimeFactorizer extends PrimeFactorizer implements Runnable
     public static void main(String[] args) {
         // Factorization of 36 with a separate thread
         System.out.println("Factorization of 36");
-        RunnablePrimeFactorizer runnable = new RunnablePrimeFactorizer(36, 2, (long) Math.sqrt(36));
-        Thread thread = new Thread(runnable);
+        var runnable = new RunnablePrimeFactorizer(36, 2, (long) Math.sqrt(36));
+        var thread = new Thread(runnable);
         System.out.println("Thread #" + thread.getId() +
                 " performs factorization in the range of "
                 + runnable.getFrom() + "->" + runnable.getTo());
@@ -68,11 +70,10 @@ public class RunnablePrimeFactorizer extends PrimeFactorizer implements Runnable
         }
         System.out.println("Final result: " + runnable.getPrimeFactors() + "\n");
 
-
         // Factorization of 84 with two threads
         System.out.println("Factorization of 84");
-        LinkedList<RunnablePrimeFactorizer> runnables = new LinkedList<>();
-        LinkedList<Thread> threads = new LinkedList<>();
+        var runnables = new LinkedList<RunnablePrimeFactorizer>();
+        var threads = new LinkedList<Thread>();
 
         runnables.add(new RunnablePrimeFactorizer(84, 2, (long) Math.sqrt(84) / 2));
         runnables.add(new RunnablePrimeFactorizer(84, 1 + (long) Math.sqrt(84) / 2, (long) Math.sqrt(84)));
@@ -98,13 +99,12 @@ public class RunnablePrimeFactorizer extends PrimeFactorizer implements Runnable
             }
         });
 
-        LinkedList<Long> factors = new LinkedList<>();
+        var factors = new LinkedList<Long>();
         runnables.forEach((factorizer) -> factors.addAll(factorizer.getPrimeFactors()));
         System.out.println("Final result: " + factors + "\n");
 
         runnables.clear();
         threads.clear();
-
 
         // Factorization of 2489 with two threads
         System.out.println("Factorization of 2489");
@@ -132,7 +132,7 @@ public class RunnablePrimeFactorizer extends PrimeFactorizer implements Runnable
             }
         });
 
-        LinkedList<Long> factors2 = new LinkedList<Long>();
+        var factors2 = new LinkedList<Long>();
         runnables.forEach((factorizer) -> factors2.addAll(factorizer.getPrimeFactors()));
         System.out.println("Final result: " + factors2);
     }

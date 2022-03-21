@@ -7,11 +7,11 @@ public class RunnablePrimeGenerator extends PrimeGenerator implements Runnable {
     }
 
     public static void main(String[] args) {
-        RunnablePrimeGenerator gen1 = new RunnablePrimeGenerator(1, 100);
-        RunnablePrimeGenerator gen2 = new RunnablePrimeGenerator(101, 200);
+        var gen1 = new RunnablePrimeGenerator(1, 100);
+        var gen2 = new RunnablePrimeGenerator(101, 200);
 
-        Thread t1 = new Thread(gen1);
-        Thread t2 = new Thread(gen2);
+        var t1 = new Thread(gen1);
+        var t2 = new Thread(gen2);
 
         t1.start();
         t2.start();

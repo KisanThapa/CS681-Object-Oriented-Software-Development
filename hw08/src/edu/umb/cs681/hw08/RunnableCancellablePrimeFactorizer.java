@@ -25,7 +25,8 @@ public class RunnableCancellablePrimeFactorizer extends RunnablePrimeFactorizer 
         while (dividend != 1 && divisor <= to) {
             lock.lock();
             try {
-                if (done) break;
+                if (done)
+                    break;
                 if (divisor > 2 && isEven(divisor)) {
                     divisor++;
                     continue;
@@ -34,8 +35,10 @@ public class RunnableCancellablePrimeFactorizer extends RunnablePrimeFactorizer 
                     factors.add(divisor);
                     dividend /= divisor;
                 } else {
-                    if (divisor == 2) divisor++;
-                    else divisor += 2;
+                    if (divisor == 2)
+                        divisor++;
+                    else
+                        divisor += 2;
                 }
             } finally {
                 lock.unlock();
@@ -47,7 +50,7 @@ public class RunnableCancellablePrimeFactorizer extends RunnablePrimeFactorizer 
         // Factorization of 36 with a separate thread
         System.out.println("Factorization of 36");
         var gen1 = new RunnableCancellablePrimeFactorizer(36, 2, (long) Math.sqrt(36));
-        Thread thread = new Thread(gen1);
+        var thread = new Thread(gen1);
         System.out.println("Thread #" + thread.getId() +
                 " performs factorization in the range of "
                 + gen1.getFrom() + "->" + gen1.getTo());
@@ -61,11 +64,10 @@ public class RunnableCancellablePrimeFactorizer extends RunnablePrimeFactorizer 
         }
         System.out.println("Final result: " + gen1.getPrimeFactors() + "\n");
 
-
         // Factorization of 76 with a two threads
         System.out.println("Factorization of 76");
-        LinkedList<RunnableCancellablePrimeFactorizer> runnables = new LinkedList<>();
-        LinkedList<Thread> threads = new LinkedList<>();
+        var runnables = new LinkedList<RunnableCancellablePrimeFactorizer>();
+        var threads = new LinkedList<Thread>();
 
         runnables.add(new RunnableCancellablePrimeFactorizer(
                 76, 2, (long) Math.sqrt(76) / 2));
@@ -94,7 +96,7 @@ public class RunnableCancellablePrimeFactorizer extends RunnablePrimeFactorizer 
             }
         });
 
-        LinkedList<Long> factors2 = new LinkedList<>();
+        var factors2 = new LinkedList<Long>();
         runnables.forEach((factorizer) -> factors2.addAll(factorizer.getPrimeFactors()));
         System.out.println("Final result: " + factors2);
 

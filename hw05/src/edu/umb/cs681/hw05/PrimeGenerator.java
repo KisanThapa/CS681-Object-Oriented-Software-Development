@@ -19,13 +19,13 @@ public class PrimeGenerator {
 
     public static void main(String[] args) {
         // Single-threaded prime number generation (with generatePrimes())
-        PrimeGenerator gen = new PrimeGenerator(1, 100);
+        var gen = new PrimeGenerator(1, 100);
         gen.generatePrimes();
         gen.getPrimes().forEach((Long prime) -> System.out.print(prime + ", "));
         System.out.println("\n" + gen.getPrimes().size() + " prime numbers are found.");
 
         // Single-threaded prime number generation (without using generatePrimes())
-        PrimeGenerator gen2 = new PrimeGenerator(1, 100);
+        var gen2 = new PrimeGenerator(1, 100);
         List<Long> primes = LongStream
                 .rangeClosed(gen2.from, gen2.to)
                 .filter(gen2::isPrime)
@@ -36,7 +36,7 @@ public class PrimeGenerator {
         System.out.println("\n" + primes.size() + " prime numbers are found.");
 
         // Single-threaded prime number generation (without using generatePrimes())
-        PrimeGenerator gen3 = new PrimeGenerator(1, 100);
+        var gen3 = new PrimeGenerator(1, 100);
         long size = LongStream
                 .rangeClosed(gen3.from, gen3.to)
                 .filter(gen3::isPrime)

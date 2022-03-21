@@ -38,10 +38,9 @@ public class RunnableCancellablePrimeGenerator extends RunnablePrimeGenerator {
     }
 
     public static void main(String[] args) {
-        RunnableCancellablePrimeGenerator gen = new RunnableCancellablePrimeGenerator(1, 100);
-        Thread thread = new Thread(gen);
+        var gen = new RunnableCancellablePrimeGenerator(1, 500);
+        var thread = new Thread(gen);
         thread.start();
-        gen.setDone();
         try {
             thread.join();
         } catch (InterruptedException e) {

@@ -12,15 +12,13 @@ public class Main {
         // Finding my neighbouring counties
         var neighbouringCounties = Files.readAllLines(path)
                 .stream()
-                .filter(line ->
-                        line.contains("Massachusetts, Norfolk")
-                                || line.contains("Massachusetts, Worcester")
-                                || line.contains("Massachusetts, Middlesex")
-                                || line.contains("Massachusetts, Suffolk")
-                                || line.contains("Massachusetts, Plymouth")
-                                || line.contains("Massachusetts, Bristol")
-                                || line.contains("Rhode Island, Providence")
-                )
+                .filter(line -> line.contains("Massachusetts, Norfolk")
+                        || line.contains("Massachusetts, Worcester")
+                        || line.contains("Massachusetts, Middlesex")
+                        || line.contains("Massachusetts, Suffolk")
+                        || line.contains("Massachusetts, Plymouth")
+                        || line.contains("Massachusetts, Bristol")
+                        || line.contains("Rhode Island, Providence"))
                 .map(line -> line.split(","))
                 .collect(Collectors.toList());
 
@@ -30,8 +28,7 @@ public class Main {
                             var av = (result[1] * result[0] + pvi) / ++result[0];
                             return new double[]{result[0]++, av};
                         },
-                        (finalResult, intermediateResult) -> finalResult
-                )[1];
+                        (finalResult, intermediateResult) -> finalResult)[1];
         System.out.print("Average PVI of my neighbouring counties and my counties is: ");
         System.out.println(avPvi);
 
@@ -41,8 +38,7 @@ public class Main {
                             var av = (result[1] * result[0] + pvi) / ++result[0];
                             return new double[]{result[0]++, av};
                         },
-                        (finalResult, intermediateResult) -> finalResult
-                )[1];
+                        (finalResult, intermediateResult) -> finalResult)[1];
         System.out.print("Average infection rate of my neighbouring counties and my counties is: ");
         System.out.println(avInfectionRate);
 
@@ -52,8 +48,7 @@ public class Main {
                             var av = (result[1] * result[0] + pvi) / ++result[0];
                             return new double[]{result[0]++, av};
                         },
-                        (finalResult, intermediateResult) -> finalResult
-                )[1];
+                        (finalResult, intermediateResult) -> finalResult)[1];
         System.out.print("Average vaccination rate of my neighbouring counties and my counties is: ");
         System.out.println(avVaxRate);
 
@@ -71,8 +66,7 @@ public class Main {
                             var av = (result[1] * result[0] + pvi) / ++result[0];
                             return new double[]{result[0]++, av};
                         },
-                        (finalResult, intermediateResult) -> finalResult
-                )[1];
+                        (finalResult, intermediateResult) -> finalResult)[1];
 
         var massSD = 0.0d;
         for (String[] county : massCounties) {
@@ -84,12 +78,5 @@ public class Main {
         System.out.print("Standard Deviation of massachusetts counties: ");
         System.out.println(massSD);
 
-
-
-//        massCounties.stream()
-////                .map(line -> line[11].replace("\"", ""))
-//                .forEach(System.out::println);
-
     }
 }
-

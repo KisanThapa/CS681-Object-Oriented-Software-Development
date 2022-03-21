@@ -7,10 +7,10 @@ public class RunnableConcurrentSingleton implements Runnable {
     }
 
     public static void main(String[] args) {
-        Thread t1 = new Thread(new RunnableConcurrentSingleton());
-        Thread t2 = new Thread(new RunnableConcurrentSingleton());
-        Thread t3 = new Thread(new RunnableConcurrentSingleton());
-        Thread t4 = new Thread(new RunnableConcurrentSingleton());
+        var t1 = new Thread(new RunnableConcurrentSingleton());
+        var t2 = new Thread(new RunnableConcurrentSingleton());
+        var t3 = new Thread(new RunnableConcurrentSingleton());
+        var t4 = new Thread(new RunnableConcurrentSingleton());
 
         t1.start();
         t2.start();

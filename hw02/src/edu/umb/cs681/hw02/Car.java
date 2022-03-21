@@ -3,11 +3,11 @@ package edu.umb.cs681.hw02;
 import java.util.ArrayList;
 
 public class Car {
-    private String model;
-    private String make;
-    private int mileage;
-    private int year;
-    private int price;
+    private final String model;
+    private final String make;
+    private final int mileage;
+    private final int year;
+    private final int price;
     private ArrayList<Car> cars;
     private int dominationCount = 0;
 
@@ -43,12 +43,12 @@ public class Car {
         return cars;
     }
 
-    public int getDominationCount() {
-        return dominationCount;
-    }
-
     public void setCars(ArrayList<Car> cars) {
         this.cars = cars;
+    }
+
+    public int getDominationCount() {
+        return dominationCount;
     }
 
     public void setDominationCount(int dominationCount) {

@@ -58,7 +58,7 @@ public class RunnableCancellableInterruptiblePrimeFactorizer extends RunnableCan
     }
 
     public static void main(String[] args) {
-        RunnableCancellableInterruptiblePrimeFactorizer gen = new RunnableCancellableInterruptiblePrimeFactorizer(256, 2, 8);
+        var gen = new RunnableCancellableInterruptiblePrimeFactorizer(256, 2, 8);
         Thread thread = new Thread(gen);
         thread.start();
 
@@ -82,13 +82,11 @@ public class RunnableCancellableInterruptiblePrimeFactorizer extends RunnableCan
         System.out.print("Factors of 122 are	:\t\t");
         gen.getPrimeFactors().forEach((Long l) -> System.out.print(l + ", "));
 
-        RunnableCancellableInterruptiblePrimeFactorizer gen1 = new
-                RunnableCancellableInterruptiblePrimeFactorizer(336, 3, 12);
-        RunnableCancellableInterruptiblePrimeFactorizer gen2 = new
-                RunnableCancellableInterruptiblePrimeFactorizer(24, 2, 20);
+        var gen1 = new RunnableCancellableInterruptiblePrimeFactorizer(336, 3, 12);
+        var gen2 = new RunnableCancellableInterruptiblePrimeFactorizer(24, 2, 20);
 
-        Thread thread1 = new Thread(gen1);
-        Thread thread2 = new Thread(gen2);
+        var thread1 = new Thread(gen1);
+        var thread2 = new Thread(gen2);
 
         thread1.start();
         thread2.start();

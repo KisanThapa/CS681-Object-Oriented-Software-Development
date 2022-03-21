@@ -52,7 +52,7 @@ public class PrimeFactorizer {
 
     public static void main(String[] args) {
         System.out.print("Prime factors of 6: ");
-        PrimeFactorizer fac = new PrimeFactorizer(6);
+        var fac = new PrimeFactorizer(6);
         fac.generatePrimeFactors();
         System.out.println(fac.getPrimeFactors());
 

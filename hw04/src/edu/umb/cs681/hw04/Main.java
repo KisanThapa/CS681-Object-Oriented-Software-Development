@@ -19,7 +19,7 @@ public class Main {
         }
         var endTime = System.nanoTime();
 
-        long primeCountOneThread = run1.getPrimes().size();
+        var primeCountOneThread = run1.getPrimes().size();
         var oneThreadDuration = (endTime - startTime) / 1_000_000L;
         System.out.println(primeCountOneThread + " prime numbers are found in total.");
         System.out.println("Time taken with one thread: " + oneThreadDuration + " milliseconds");
@@ -45,11 +45,10 @@ public class Main {
         }
         endTime = System.nanoTime();
 
-        long primeCountTwoThreads = run2.getPrimes().size() + run3.getPrimes().size();
+        var primeCountTwoThreads = run2.getPrimes().size() + run3.getPrimes().size();
         var twoThreadDuration = (endTime - startTime) / 1_000_000L;
         System.out.println(primeCountTwoThreads + " prime numbers are found in total.");
         System.out.println("Time taken with two threads: " + twoThreadDuration + " milliseconds");
-
 
         // Using four threads
         System.out.println("\n############################\n");
@@ -80,11 +79,11 @@ public class Main {
         }
         endTime = System.nanoTime();
 
-        long primeCountFourThreads = run7.getPrimes().size() + run8.getPrimes().size() + run9.getPrimes().size() + run10.getPrimes().size();
+        var primeCountFourThreads = run7.getPrimes().size() + run8.getPrimes().size() + run9.getPrimes().size()
+                + run10.getPrimes().size();
         var fourThreadDuration = (endTime - startTime) / 1_000_000;
         System.out.println(primeCountFourThreads + " prime numbers are found in total.");
         System.out.println("Time taken with four threads: " + fourThreadDuration + " milliseconds");
-
 
         // Using eight threads
         System.out.println("\n############################\n");
@@ -131,7 +130,9 @@ public class Main {
         }
         endTime = System.nanoTime();
 
-        long primeCountEightThreads = run11.getPrimes().size() + run12.getPrimes().size() + run13.getPrimes().size() + run14.getPrimes().size() + run15.getPrimes().size() + run16.getPrimes().size() + run17.getPrimes().size() + run18.getPrimes().size();
+        var primeCountEightThreads = run11.getPrimes().size() + run12.getPrimes().size() + run13.getPrimes().size()
+                + run14.getPrimes().size() + run15.getPrimes().size() + run16.getPrimes().size()
+                + run17.getPrimes().size() + run18.getPrimes().size();
         var eightThreadDuration = (endTime - startTime) / 1_000_000;
         System.out.println(primeCountEightThreads + " prime numbers are found in total.");
         System.out.println("Time taken with eight threads: " + eightThreadDuration + " milliseconds");
@@ -213,7 +214,12 @@ public class Main {
         }
         endTime = System.nanoTime();
 
-        long primeCountSixteenThreads = run21.getPrimes().size() + run22.getPrimes().size() + run23.getPrimes().size() + run24.getPrimes().size() + run25.getPrimes().size() + run26.getPrimes().size() + run27.getPrimes().size() + run28.getPrimes().size() + run29.getPrimes().size() + run30.getPrimes().size() + run31.getPrimes().size() + run32.getPrimes().size() + run33.getPrimes().size() + run34.getPrimes().size() + run35.getPrimes().size() + run36.getPrimes().size();
+        var primeCountSixteenThreads = run21.getPrimes().size() + run22.getPrimes().size() + run23.getPrimes().size()
+                + run24.getPrimes().size() + run25.getPrimes().size() + run26.getPrimes().size()
+                + run27.getPrimes().size() + run28.getPrimes().size() + run29.getPrimes().size()
+                + run30.getPrimes().size() + run31.getPrimes().size() + run32.getPrimes().size()
+                + run33.getPrimes().size() + run34.getPrimes().size() + run35.getPrimes().size()
+                + run36.getPrimes().size();
         var sixteenThreadDuration = (endTime - startTime) / 1_000_000;
         System.out.println(primeCountSixteenThreads + " prime numbers are found in total.");
         System.out.println("Time taken with sixteen threads: " + sixteenThreadDuration + " milliseconds");

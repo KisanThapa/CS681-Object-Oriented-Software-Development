@@ -1,7 +1,6 @@
 package edu.umb.cs681.hw04;
 
 import java.util.LinkedList;
-import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.LongStream;
 
@@ -27,9 +26,11 @@ public class PrimeGenerator {
 
     protected boolean isPrime(long n) {
         // 1 or lower numbers are not prime.
-        if (n <= 1) return false;
+        if (n <= 1)
+            return false;
         // Even numbers are not prime, except for 2.
-        if (n > 2 && isEven(n)) return false;
+        if (n > 2 && isEven(n))
+            return false;
 
         long i;
         // Find a number "i" that can divide "n"
@@ -47,14 +48,14 @@ public class PrimeGenerator {
 
     public static void main(String[] args) {
         // Single-threaded prime number generation (with generatePrimes())
-        PrimeGenerator gen = new PrimeGenerator(1, 100);
+        var gen = new PrimeGenerator(1, 100);
         gen.generatePrimes();
         gen.getPrimes().forEach((Long prime) -> System.out.print(prime + ", "));
         System.out.println("\n" + gen.getPrimes().size() + " prime numbers are found.");
 
         // Single-threaded prime number generation (without using generatePrimes())
-        PrimeGenerator gen2 = new PrimeGenerator(1, 100);
-        List<Long> primes = LongStream
+        var gen2 = new PrimeGenerator(1, 100);
+        var primes = LongStream
                 .rangeClosed(gen2.from, gen2.to)
                 .filter(gen2::isPrime)
                 .boxed()
@@ -64,8 +65,8 @@ public class PrimeGenerator {
         System.out.println("\n" + primes.size() + " prime numbers are found.");
 
         // Single-threaded prime number generation (without using generatePrimes())
-        PrimeGenerator gen3 = new PrimeGenerator(1, 100);
-        long size = LongStream
+        var gen3 = new PrimeGenerator(1, 100);
+        var size = LongStream
                 .rangeClosed(gen3.from, gen3.to)
                 .filter(gen3::isPrime)
                 .reduce(0L, (long count, long n) -> {
@@ -75,4 +76,3 @@ public class PrimeGenerator {
         System.out.println("\n" + size + " prime numbers are found.");
     }
 }
-
