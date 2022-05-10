@@ -16,7 +16,6 @@ public class Main {
         cars.add(new Car("Toyota", "Corolla", 2015, 20, 16_000f));
         cars.add(new Car("Honda", "CR-V", 2010, 20, 7_000f));
 
-
         Integer carMakeNum = cars
                 .stream()
                 .parallel()
@@ -28,7 +27,6 @@ public class Main {
                 );
 
         System.out.println("Number of car makes: " + carMakeNum);
-
 
         Integer carModelNum = cars
                 .stream()
