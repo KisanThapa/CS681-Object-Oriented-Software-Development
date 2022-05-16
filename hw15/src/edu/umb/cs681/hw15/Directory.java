@@ -1,17 +1,18 @@
-package edu.umb.cs681.hw12;
+package edu.umb.cs681.hw15;
 
 import java.time.LocalDateTime;
 import java.util.LinkedList;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class Directory extends FSElement {
 
+    ConcurrentLinkedQueue<FSElement> children;
     private FileSystem fileSystem;
-    LinkedList<FSElement> children;
 
     public Directory(Directory parent, String name, int size, LocalDateTime creationTime) {
         super(parent, name, size, creationTime);
 
-        children = new LinkedList<>();
+        children = new ConcurrentLinkedQueue<>();
 
         if (parent != null) {
             parent.appendChild(this);
@@ -23,22 +24,26 @@ public class Directory extends FSElement {
         return true;
     }
 
-    public LinkedList<FSElement> getChildren() {
+    public ConcurrentLinkedQueue<FSElement> getChildren() {
         return this.children;
     }
 
     public void appendChild(FSElement file) {
-        children.add(file);
+
+        this.children.add(file);
     }
 
     public int countChildren() {
+
         int countChild = 0;
         for (FSElement f : this.children)
             countChild += 1;
         return countChild;
+
     }
 
     public LinkedList<Directory> getSubDirectories() {
+
         LinkedList<Directory> directories = new LinkedList<>();
         for (FSElement fsElement : children) {
             if (fsElement instanceof Directory)
@@ -57,6 +62,7 @@ public class Directory extends FSElement {
     }
 
     public int getTotalSize() {
+
         int totalSize = 0;
         for (FSElement f : getChildren())
             if (f instanceof Directory)
@@ -64,6 +70,6 @@ public class Directory extends FSElement {
             else
                 totalSize += f.getSize();
         return totalSize;
-    }
 
+    }
 }
